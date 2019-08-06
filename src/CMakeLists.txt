@@ -18,36 +18,7 @@ if (SPM_USE_BUILTIN_PROTOBUF)
   set(SPM_MODEL_PROTO_HDRS builtin_pb/sentencepiece_model.pb.h)
   set(SPM_MODEL_PROTO_SRCS builtin_pb/sentencepiece_model.pb.cc)
   set(PROTOBUF_LITE_LIBRARY "")
-  set(PROTOBUF_LITE_SRCS
-    ${CMAKE_CURRENT_SOURCE_DIR}/../third_party/protobuf-lite/arena.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/../third_party/protobuf-lite/arenastring.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/../third_party/protobuf-lite/bytestream.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/../third_party/protobuf-lite/coded_stream.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/../third_party/protobuf-lite/common.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/../third_party/protobuf-lite/extension_set.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/../third_party/protobuf-lite/generated_message_table_driven_lite.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/../third_party/protobuf-lite/generated_message_util.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/../third_party/protobuf-lite/implicit_weak_message.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/../third_party/protobuf-lite/int128.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/../third_party/protobuf-lite/io_win32.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/../third_party/protobuf-lite/message_lite.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/../third_party/protobuf-lite/repeated_field.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/../third_party/protobuf-lite/status.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/../third_party/protobuf-lite/statusor.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/../third_party/protobuf-lite/stringpiece.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/../third_party/protobuf-lite/stringprintf.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/../third_party/protobuf-lite/structurally_valid.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/../third_party/protobuf-lite/strutil.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/../third_party/protobuf-lite/time.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/../third_party/protobuf-lite/wire_format_lite.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/../third_party/protobuf-lite/zero_copy_stream.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/../third_party/protobuf-lite/zero_copy_stream_impl_lite.cc)
-  if (MSVC)
-    add_definitions("/DHAVE_PTHREAD /wd4018 /wd4514")
-  else()
-    add_definitions("-pthread -DHAVE_PTHREAD=1 -Wno-sign-compare")
-  endif()
-  include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../third_party/protobuf-lite)
+  set(PROTOBUF_LITE_SRCS "")
   include_directories(builtin_pb)
 else()
   find_package(Protobuf REQUIRED)
